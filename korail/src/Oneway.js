@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Division from "./Division";
 import Item from "./Item";
 import Margin from "./Margin";
@@ -13,14 +7,13 @@ import Radius from "./Radius";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
 import { Feather } from "@expo/vector-icons";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import PeopleNum2 from "./PeopleNum2";
+
 export default () => {
   const [firstOpend, setFirstOpend] = useState(false);
   const [firstsOpend, setFirstsOpend] = useState(false);
   const [secondOpend, setSecondOpend] = useState(false);
   const [thirdOpend, setThirdOpend] = useState(false);
-
   const [startStation, setStartStation] = useState("광명");
   const [endStation, setEndStation] = useState("오송");
   const [selectedOneway, setSelectedOneway] = useState(true);
@@ -34,6 +27,7 @@ export default () => {
     setEndStation(startStation);
     setStartStation(temp);
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.rowStyle}>
@@ -80,7 +74,7 @@ export default () => {
       </View>
       <Margin height={10} />
       <View style={styles.rowStyle}>
-        <Text style={{ fontSize: 15, flex: 1, textAlign: "center" }}>출발</Text>
+        <Text style={styles.arrive}>출발</Text>
         <TouchableOpacity
           style={{
             borderRadius: 20,
@@ -92,20 +86,12 @@ export default () => {
         >
           <Feather name="refresh-ccw" size={16} color="#568BB7" />
         </TouchableOpacity>
-        <Text style={{ fontSize: 15, flex: 1, textAlign: "center" }}>도착</Text>
+        <Text style={styles.arrive}>도착</Text>
       </View>
       <Margin height={10} />
       <View style={{ flexDirection: "row" }}>
         <TouchableOpacity style={{ flex: 1 }}>
-          <Text
-            style={{
-              fontSize: 24,
-              color: "#0F384E",
-              textAlign: "center",
-            }}
-          >
-            {startStation}
-          </Text>
+          <Text style={styles.station}>{startStation}</Text>
         </TouchableOpacity>
         <Feather
           name="arrow-right"
@@ -114,15 +100,7 @@ export default () => {
           style={{ alignItems: "center", marginTop: 5 }}
         />
         <TouchableOpacity style={{ flex: 1 }}>
-          <Text
-            style={{
-              fontSize: 24,
-              color: "#0F384E",
-              textAlign: "center",
-            }}
-          >
-            {endStation}
-          </Text>
+          <Text style={styles.station}>{endStation}</Text>
         </TouchableOpacity>
       </View>
       <Margin height={12} />
@@ -185,4 +163,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   rowStyle: { flexDirection: "row", width: "100%" },
+  station: {
+    fontSize: 24,
+    color: "#0F384E",
+    textAlign: "center",
+  },
+  arrive: { fontSize: 15, flex: 1, textAlign: "center" },
 });

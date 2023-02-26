@@ -4,6 +4,7 @@ import Confirm from "./src/Confirm";
 import Tabbar from "./src/Tabbar";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import Oneway from "./src/Oneway";
+import Station from "./src/Station";
 
 export default function App() {
   const [selectedTabIdx, setSelectedTabIdx] = useState(0);
@@ -31,11 +32,13 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Text>아이유</Text>
-        <Tabbar
-          selectedTabIdx={selectedTabIdx}
-          setSelectedTabIdx={setSelectedTabIdx}
-        />
+        <SafeAreaView>
+          <Station />
+          <Tabbar
+            selectedTabIdx={selectedTabIdx}
+            setSelectedTabIdx={setSelectedTabIdx}
+          />
+        </SafeAreaView>
       </SafeAreaProvider>
     );
   }
