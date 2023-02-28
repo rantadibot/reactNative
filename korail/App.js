@@ -1,45 +1,48 @@
-import { useState } from "react";
-import { Text } from "react-native";
-import Confirm from "./src/Confirm";
-import Tabbar from "./src/Tabbar";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import Oneway from "./src/Oneway";
-import Station from "./src/Station";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Book from "./Book";
+import Confirm from "./Confirm";
+import TabBar from "./src/TabBar";
+import Cut from "./Cut";
+import Play from "./Play";
 
 export default function App() {
-  const [selectedTabIdx, setSelectedTabIdx] = useState(0);
-
-  if (selectedTabIdx === 0) {
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  if (selectedIdx == 0) {
     return (
-      <SafeAreaProvider>
-        <Oneway />
-        <Tabbar
-          selectedTabIdx={selectedTabIdx}
-          setSelectedTabIdx={setSelectedTabIdx}
-        />
-      </SafeAreaProvider>
+      <View style={styles.container}>
+        <Book />
+        <TabBar selectedIdx={selectedIdx} setSelectedIdx={setSelectedIdx} />
+      </View>
     );
-  } else if (selectedTabIdx === 3) {
+  } else if (selectedIdx == 3) {
     return (
-      <SafeAreaProvider>
+      <View style={styles.container}>
         <Confirm />
-        <Tabbar
-          selectedTabIdx={selectedTabIdx}
-          setSelectedTabIdx={setSelectedTabIdx}
-        />
-      </SafeAreaProvider>
+        <TabBar selectedIdx={selectedIdx} setSelectedIdx={setSelectedIdx} />
+      </View>
+    );
+  } else if (selectedIdx == 1) {
+    return (
+      <View style={styles.container}>
+        <Cut />
+        <TabBar selectedIdx={selectedIdx} setSelectedIdx={setSelectedIdx} />
+      </View>
     );
   } else {
     return (
-      <SafeAreaProvider>
-        <SafeAreaView>
-          <Station />
-          <Tabbar
-            selectedTabIdx={selectedTabIdx}
-            setSelectedTabIdx={setSelectedTabIdx}
-          />
-        </SafeAreaView>
-      </SafeAreaProvider>
+      <View style={styles.container}>
+        <Play />
+        <TabBar selectedIdx={selectedIdx} setSelectedIdx={setSelectedIdx} />
+      </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

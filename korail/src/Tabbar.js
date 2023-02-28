@@ -1,50 +1,63 @@
-import React from "react";
 import { TouchableOpacity, View, Text, Image } from "react-native";
-const TabBtn = ({ onPress, isSelected, content, imgName }) => {
+import Margin from "../Margin";
+
+const TabButton = ({ isSelected, onPress, uri, text }) => {
   return (
     <TouchableOpacity
+      activeOpacity={1}
       onPress={onPress}
-      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 10,
+        backgroundColor: "white",
+        flexDirection: "column",
+        borderTopWidth: isSelected ? 3 : null,
+        borderColor: "#005699",
+        marginHorizontal: 13,
+      }}
     >
-      <Image style={{ width: 55, height: 50 }} source={imgName} />
-      <Text>{content}</Text>
+      <Image source={uri} style={{ width: 37, height: 35 }} />
+      <Margin height={3} />
+      <Text style={{ color: isSelected ? "#5E90B5" : "black", fontSize: 12 }}>
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };
-
-export default ({ selectedTabIdx, setSelectedTabIdx }) => {
+export default ({ selectedIdx, setSelectedIdx }) => {
   return (
     <View
       style={{
         flexDirection: "row",
-        borderTopWidth: 0.5,
-        borderColor: "grey",
-        marginVertical: 10,
+        width: "100%",
+        height: 70,
       }}
     >
-      <TabBtn
-        isSelected={selectedTabIdx === 0}
-        onPress={() => setSelectedTabIdx(0)}
-        content="승차권 예약"
-        imgName={require("../photo/ktx.jpg")}
+      <TabButton
+        isSelected={selectedIdx === 0}
+        onPress={() => setSelectedIdx(0)}
+        uri={require("../photo/예매.jpg")}
+        text="승차권예매"
       />
-      <TabBtn
-        isSelected={selectedTabIdx === 1}
-        onPress={() => setSelectedTabIdx(1)}
-        content="할인 정기권"
-        imgName={require("../photo/dis.jpg")}
+      <TabButton
+        isSelected={selectedIdx === 1}
+        onPress={() => setSelectedIdx(1)}
+        uri={require("../photo/할인.jpg")}
+        text="할인·정기권"
       />
-      <TabBtn
-        isSelected={selectedTabIdx === 2}
-        onPress={() => setSelectedTabIdx(2)}
-        content="관광상품"
-        imgName={require("../photo/move.jpg")}
+      <TabButton
+        isSelected={selectedIdx === 2}
+        onPress={() => setSelectedIdx(2)}
+        uri={require("../photo/관광.jpg")}
+        text="관광상품"
       />
-      <TabBtn
-        isSelected={selectedTabIdx === 3}
-        onPress={() => setSelectedTabIdx(3)}
-        content="승차권 확인"
-        imgName={require("../photo/dis2.jpg")}
+      <TabButton
+        isSelected={selectedIdx === 3}
+        onPress={() => setSelectedIdx(3)}
+        uri={require("../photo/확인.jpg")}
+        text="승차권확인"
       />
     </View>
   );

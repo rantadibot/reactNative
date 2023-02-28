@@ -1,13 +1,13 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import KorailList from "../KorailList";
+import PeopleNum2 from "../PeopleNum2";
 import Margin from "../Margin";
 import Division from "../Division";
 
 export default ({ isOpened, onPress, include }) => {
   if (include == false) return null;
-  else {
-    return (
+  return (
+    <View>
       <TouchableOpacity
         onPress={onPress}
         style={{ justifyContent: "center", alignItems: "center" }}
@@ -17,10 +17,10 @@ export default ({ isOpened, onPress, include }) => {
           size={24}
           color="#5E90B5"
         />
-        <KorailList isOpened={isOpened} />
         <Margin height={5} />
         <Division />
       </TouchableOpacity>
-    );
-  }
+      <PeopleNum2 isOpened={isOpened} />
+    </View>
+  );
 };
