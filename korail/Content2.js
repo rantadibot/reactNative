@@ -15,15 +15,18 @@ export default ({ text1, text2 }) => {
 
       <Text
         style={{
-          fontSize: 17,
+          fontSize: 15,
           color: "black",
+          paddingLeft: 12,
         }}
       >
         {text1}
       </Text>
-      <Margin height={15}></Margin>
-      <Text style={{ fontSize: 13, color: "grey" }}>{text2}</Text>
-      <Margin height={30}></Margin>
+      <Margin height={12}></Margin>
+      <Text style={{ fontSize: 13, color: "grey", paddingLeft: 15 }}>
+        {text2}
+      </Text>
+      <Margin height={25}></Margin>
       <View style={{ flexDirection: "column", marginBottom: 18 }}>
         <CutProfile
           name="내일로 두번째 이야기"
@@ -33,7 +36,7 @@ export default ({ text1, text2 }) => {
         <Margin height={15} />
         <CutProfile
           name="문화누리레일패스"
-          desc="kTX, ITX 새마을, 새마을, 무궁화호, 누리로 열차의 입석, 자유석으로 여행"
+          desc="KTX, ITX 새마을, 새마을, 무궁화호, 누리로 열차의 입석, 자유석으로 여행"
           isLong={true}
         />
       </View>

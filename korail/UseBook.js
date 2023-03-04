@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import dayjs from "dayjs";
-import "dayjs/locale/ko";
 import Calender2 from "./src/Calender2";
-
-dayjs.locale("ko");
 
 export default () => {
   const [selectedWay, setSelectedWay] = useState(0);

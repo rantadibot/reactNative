@@ -15,15 +15,18 @@ export default ({ text1, text2 }) => {
 
       <Text
         style={{
-          fontSize: 17,
+          fontSize: 15,
           color: "black",
+          paddingLeft: 12,
         }}
       >
         {text1}
       </Text>
-      <Margin height={15}></Margin>
-      <Text style={{ fontSize: 13, color: "grey" }}>{text2}</Text>
-      <Margin height={30}></Margin>
+      <Margin height={12}></Margin>
+      <Text style={{ fontSize: 12, color: "grey", paddingLeft: 15 }}>
+        {text2}
+      </Text>
+      <Margin height={25}></Margin>
       <View style={{ flexDirection: "column", marginBottom: 18 }}>
         <CutProfile
           name="기간자 유형 정기권"

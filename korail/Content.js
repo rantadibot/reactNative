@@ -15,15 +15,18 @@ export default ({ text1, text2 }) => {
 
       <Text
         style={{
-          fontSize: 17,
+          fontSize: 15,
           color: "black",
+          paddingLeft: 12,
         }}
       >
         {text1}
       </Text>
-      <Margin height={15}></Margin>
-      <Text style={{ fontSize: 13, color: "grey" }}>{text2}</Text>
-      <Margin height={30}></Margin>
+      <Margin height={12}></Margin>
+      <Text style={{ fontSize: 13, color: "grey", paddingLeft: 15 }}>
+        {text2}
+      </Text>
+      <Margin height={24}></Margin>
     </View>
   );
 };
