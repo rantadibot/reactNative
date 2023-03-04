@@ -18,21 +18,20 @@ export default ({ name, desc, isLong }) => {
       <View style={{ paddingHorizontal: 10 }}>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: 16,
             color: "black",
-            fontWeight: "500",
           }}
         >
           {name}
         </Text>
         <Margin height={15}></Margin>
-        <Text style={{ fontSize: 12, color: "darkgrey" }}>{desc}</Text>
+        <Text style={{ fontSize: 11, color: "darkgrey" }}>{desc}</Text>
       </View>
       <Margin height={30}></Margin>
       <TouchableOpacity>
         <Text
           style={{
-            fontSize: 14,
+            fontSize: 15,
             backgroundColor: "#EAF2F5",
             color: "#224966",
             fontWeight: "bold",

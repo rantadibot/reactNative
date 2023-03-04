@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import Division from "./Division";
 import Margin from "./Margin";
 import { Feather } from "@expo/vector-icons";
 
@@ -46,8 +45,6 @@ export default () => {
           <Text style={styles.station}>{endStation}</Text>
         </TouchableOpacity>
       </View>
-      <Margin height={12} />
-      <Division />
     </View>
   );
 };

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { useState } from "react";
-import { getCalendarDate, getDayText, getDayColor } from "./util2";
+import { getCalendarDate, getDayText, getDayColor, times } from "./util2";
 import {
   FlatList,
   StyleSheet,
@@ -37,6 +37,7 @@ const Column = ({ content, color, isSelected, onPress, disabled }) => {
     </TouchableOpacity>
   );
 };
+
 export default () => {
   const now = dayjs();
   const [selectedDate, setSelectedDate] = useState(now);
@@ -57,7 +58,7 @@ export default () => {
     hideDatePicker();
   };
 
-  const renderItem2 = ({ item: date }) => {
+  const renderItem = ({ item: date }) => {
     const day = dayjs(date).get("day");
     const dateText = dayjs(date).get("date");
     const onPress = () => {
@@ -113,9 +114,8 @@ export default () => {
         horizontal={true}
         data={columns}
         numColumns="1"
-        renderItem={renderItem2}
+        renderItem={renderItem}
       />
-
       {/* <ScrollView style={{ flexDirection: "row" }} horizontal={true}>
         {num.map((day) => {
           const dayColor = getDayColor(day);
